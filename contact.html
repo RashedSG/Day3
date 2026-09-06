@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>تواصل — دليل الخدمات</title>
+<meta name="description" content="راسل فريق دليل الخدمات لإضافة نشاطك أو تصحيح بيانات مزوّد.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">تخطَّ إلى المحتوى</a>
+
+<header class="site-header">
+  <div class="wrap-wide header-inner">
+    <a class="brand" href="index.html">دليل الخدمات</a>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mainNav">
+      <span class="nav-toggle-bars" aria-hidden="true"></span>
+      القائمة
+    </button>
+
+    <nav class="main-nav" id="mainNav" aria-label="التنقل الرئيسي">
+      <ul>
+        <li><a href="index.html">الرئيسية</a></li>
+        <li><a href="services.html">الخدمات</a></li>
+        <li><a href="contact.html" aria-current="page">تواصل</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="wrap hero">
+    <h1>تواصل معنا</h1>
+    <p class="lead">لإضافة نشاطك، أو تصحيح بيانات مزوّد مدرج، أو الإبلاغ عن خطأ في الصفحة.</p>
+  </section>
+
+  <section class="section--tight">
+    <div class="wrap contact-grid">
+
+      <form id="contactForm" novalidate>
+        <div class="field">
+          <label for="name">الاسم</label>
+          <input type="text" id="name" name="name" autocomplete="name" required>
+        </div>
+
+        <div class="field">
+          <label for="email">البريد الإلكتروني</label>
+          <input type="email" id="email" name="email" autocomplete="email" dir="ltr" required>
+        </div>
+
+        <div class="field">
+          <label for="topic">نوع الطلب</label>
+          <select id="topic" name="topic">
+            <option value="listing">إضافة نشاط إلى الدليل</option>
+            <option value="correction">تصحيح بيانات مزوّد</option>
+            <option value="suggestion">اقتراح خدمة جديدة</option>
+            <option value="other">موضوع آخر</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="message">الرسالة</label>
+          <textarea id="message" name="message" required></textarea>
+          <span class="field-hint">اذكر اسم النشاط ونوع الخدمة ونطاق التغطية إن كان الطلب للإدراج.</span>
+        </div>
+
+        <button class="btn" type="submit">أرسل الرسالة</button>
+        <p class="field-hint" style="margin-top:1rem">النموذج غير موصول بخادم بعد؛ الإرسال لا يحفظ البيانات حاليًا.</p>
+      </form>
+
+      <aside class="info-block">
+        <h2>بيانات مباشرة</h2>
+        <ul class="info-list">
+          <li>
+            <span class="label">البريد الإلكتروني</span>
+            <a href="mailto:hello@example.com" dir="ltr">hello@example.com</a>
+          </li>
+          <li>
+            <span class="label">الهاتف</span>
+            <a href="tel:+97120000000">٠٢ ٠٠٠ ٠٠٠٠</a>
+          </li>
+          <li>
+            <span class="label">ساعات الرد</span>
+            من الأحد إلى الخميس، ٩ صباحًا – ٥ مساءًا
+          </li>
+          <li>
+            <span class="label">العنوان</span>
+            شارع الكورنيش، أبوظبي، الإمارات
+          </li>
+        </ul>
+      </aside>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap-wide">
+    <div class="footer-inner">
+      <div>
+        <h2>دليل الخدمات</h2>
+        <p>دليل مستقل لمزوّدي خدمات المنازل والصيانة في أبوظبي. البيانات تُراجع شهريًا، والإدراج لا يعني توصية بالمزوّد.</p>
+      </div>
+      <div>
+        <h2>الصفحات</h2>
+        <ul>
+          <li><a href="index.html">الرئيسية</a></li>
+          <li><a href="services.html">الخدمات</a></li>
+          <li><a href="contact.html">تواصل</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>التواصل</h2>
+        <ul>
+          <li><a href="mailto:hello@example.com">hello@example.com</a></li>
+          <li><a href="tel:+97120000000">٠٢ ٠٠٠ ٠٠٠٠</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© ٢٠٢٦ دليل الخدمات. جميع الحقوق محفوظة.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
