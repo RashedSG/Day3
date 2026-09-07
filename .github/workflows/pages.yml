@@ -27,8 +27,9 @@ jobs:
           enablement: true
       - name: Prepare site files
         run: |
-          mkdir -p _site
+          mkdir -p _site/img
           cp index.html products.html services.html contact.html styles.css app.js README.md favicon.svg _site/
+          cp img/*.jpg _site/img/ || true
           touch _site/.nojekyll
       - uses: actions/upload-pages-artifact@v3
         with:
