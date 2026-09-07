@@ -30,7 +30,10 @@
     if (e.target.tagName === "A") closeNav(false);
   });
 
-  window.addEventListener("resize", function () {
-    if (window.innerWidth >= 760) closeNav(false);
-  });
+  if (window.matchMedia) {
+    var mq = window.matchMedia("(min-width: 760px)");
+    var onChange = function (e) { if (e.matches) closeNav(false); };
+    if (mq.addEventListener) mq.addEventListener("change", onChange);
+    else if (mq.addListener) mq.addListener(onChange);
+  }
 })();
