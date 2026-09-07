@@ -4,10 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ترايثلون الصحراء — معدات السباحة والدراجة والجري</title>
-<meta name="description" content="متجر مرجعي لمعدات الترايثلون في أبوظبي: ساعات Garmin، بدلات Orca، أحذية HOKA، ودراجات سباق بأسعار المواقع الرسمية.">
+<meta name="description" content="متجر مرجعي لمعدات الترايثلون في أبوظبي.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;600&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;600&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="https://images.unsplash.com/photo-1530549387789-4c1017266635?auto=format&fit=crop&w=1200&q=70" fetchpriority="high">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -31,13 +34,13 @@
 <main id="main">
   <section class="wrap hero">
     <h1>ثلاث رياضات. سباق واحد. معدّة مختارة بدقة.</h1>
-    <p class="lead">مرجع عربي لمعدات الترايثلون من Garmin وHOKA وOrca وCanyon، بأسعار معلنة من المواقع الرسمية.</p>
+    <p class="lead">مرجع عربي لمعدات الترايثلون من Garmin وHOKA وOrca وCanyon.</p>
     <div class="actions">
       <a class="btn" href="products.html">تصفّح المنتجات</a>
       <a class="btn btn--ghost" href="contact.html">اسأل عن مقاس أو سعر</a>
     </div>
     <figure class="hero-media">
-      <img src="https://images.unsplash.com/photo-1530549387789-4c1017266635?auto=format&fit=crop&w=1600&q=80" width="1600" height="900" alt="سبّاح ترايثلون في مياه مفتوحة عند الشروق">
+      <img src="https://images.unsplash.com/photo-1530549387789-4c1017266635?auto=format&fit=crop&w=1200&q=70" width="1200" height="675" alt="سبّاح ترايثلون" fetchpriority="high" decoding="async">
     </figure>
   </section>
   <section class="section">
@@ -45,87 +48,25 @@
       <p class="section-kicker">المسافات الأولمبية</p>
       <h2 class="center">سباحة، دراجة، ثم جري</h2>
       <div class="disc-grid">
-        <a class="disc" href="products.html#swim">
-          <img src="https://images.unsplash.com/photo-1530549387789-4c1017266635?auto=format&fit=crop&w=900&q=80" alt="سباحة مياه مفتوحة">
-          <div class="disc-body"><span>الشوط الأول</span><strong>١٫٥ كم سباحة</strong></div>
-        </a>
-        <a class="disc" href="products.html#bike">
-          <img src="https://images.unsplash.com/photo-1485965120184-cf89f2245fd0?auto=format&fit=crop&w=900&q=80" alt="دراجة طرق احترافية">
-          <div class="disc-body"><span>الشوط الثاني</span><strong>٤٠ كم دراجة</strong></div>
-        </a>
-        <a class="disc" href="products.html#run">
-          <img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=900&q=80" alt="عداء على الطريق">
-          <div class="disc-body"><span>الشوط الثالث</span><strong>١٠ كم جري</strong></div>
-        </a>
+        <a class="disc" href="products.html#swim"><img loading="lazy" decoding="async" width="720" height="480" src="https://images.unsplash.com/photo-1530549387789-4c1017266635?auto=format&fit=crop&w=720&q=65" alt="سباحة"><div class="disc-body"><span>الشوط الأول</span><strong>١٫٥ كم سباحة</strong></div></a>
+        <a class="disc" href="products.html#bike"><img loading="lazy" decoding="async" width="720" height="480" src="https://images.unsplash.com/photo-1485965120184-cf89f2245fd0?auto=format&fit=crop&w=720&q=65" alt="دراجة"><div class="disc-body"><span>الشوط الثاني</span><strong>٤٠ كم دراجة</strong></div></a>
+        <a class="disc" href="products.html#run"><img loading="lazy" decoding="async" width="720" height="480" src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=720&q=65" alt="جري"><div class="disc-body"><span>الشوط الثالث</span><strong>١٠ كم جري</strong></div></a>
       </div>
     </div>
   </section>
   <section class="section">
     <div class="wrap">
-      <p class="section-kicker">مختارات هذا الأسبوع</p>
+      <p class="section-kicker">مختارات</p>
       <h2 class="center">منتجات يعتمدها المتسابقون</h2>
       <ul class="product-grid">
-        <li class="product">
-          <img src="https://images.unsplash.com/photo-1579586337278-3befd40fd17a?auto=format&fit=crop&w=900&q=80" alt="ساعة Garmin على المعصم">
-          <div class="product-body">
-            <span class="tag">Garmin</span>
-            <h3>Forerunner 965</h3>
-            <p>شاشة AMOLED وإطار تيتانيوم لتتبّع الأشواط الثلاثة.</p>
-            <p class="price">٤٩٩٫٩٩ دولار <small>السعر الرسمي الحالي على garmin.com — القائمة ٥٩٩٫٩٩ دولار</small></p>
-            <a class="product-link" href="https://www.garmin.com/en-US/p/886725/" rel="noopener noreferrer">صفحة المنتج الرسمية</a>
-          </div>
-        </li>
-        <li class="product">
-          <img src="https://images.unsplash.com/photo-1560090995-01632a28895b?auto=format&fit=crop&w=900&q=80" alt="بدلة سباحة Orca">
-          <div class="product-body">
-            <span class="tag">Orca</span>
-            <h3>Apex Flex</h3>
-            <p>أكثر بدلات السلسلة مرونة لأصحاب التقنية الجيدة في المياه المفتوحة.</p>
-            <p class="price">٧١٩ دولار <small>سعر القائمة لدى موزّعي Orca الرسميين في أمريكا</small></p>
-            <a class="product-link" href="https://www.orca.com/" rel="noopener noreferrer">موقع Orca</a>
-          </div>
-        </li>
-        <li class="product">
-          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=80" alt="حذاء سباق">
-          <div class="product-body">
-            <span class="tag">HOKA</span>
-            <h3>Cielo X1 2.0</h3>
-            <p>حذاء سباق بلوحة كربون وإسفنج PEBA للإيقاعات السريعة.</p>
-            <p class="price">٢٧٥ دولار <small>السعر الرسمي على hoka.com</small></p>
-            <a class="product-link" href="https://www.hoka.com/en/us/all-gender-footwear/cielo-x1-2.0/198605173912.html" rel="noopener noreferrer">صفحة HOKA الرسمية</a>
-          </div>
-        </li>
+        <li class="product"><img loading="lazy" decoding="async" width="720" height="480" src="https://images.unsplash.com/photo-1579586337278-3befd40fd17a?auto=format&fit=crop&w=720&q=65" alt="Garmin"><div class="product-body"><span class="tag">Garmin</span><h3>Forerunner 965</h3><p>شاشة AMOLED وإطار تيتانيوم.</p><p class="price">٤٩٩٫٩٩ دولار</p><a class="product-link" href="https://www.garmin.com/en-US/p/886725/" rel="noopener noreferrer">garmin.com</a></div></li>
+        <li class="product"><img loading="lazy" decoding="async" width="720" height="480" src="https://images.unsplash.com/photo-1560090995-01632a28895b?auto=format&fit=crop&w=720&q=65" alt="Orca"><div class="product-body"><span class="tag">Orca</span><h3>Apex Flex</h3><p>أكثر بدلات السلسلة مرونة.</p><p class="price">٧١٩ دولار</p><a class="product-link" href="https://www.orca.com/" rel="noopener noreferrer">orca.com</a></div></li>
+        <li class="product"><img loading="lazy" decoding="async" width="720" height="480" src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=720&q=65" alt="HOKA"><div class="product-body"><span class="tag">HOKA</span><h3>Cielo X1 2.0</h3><p>لوحة كربون وإسفنج PEBA.</p><p class="price">٢٧٥ دولار</p><a class="product-link" href="https://www.hoka.com/en/us/all-gender-footwear/cielo-x1-2.0/198605173912.html" rel="noopener noreferrer">hoka.com</a></div></li>
       </ul>
-      <p class="note">الأسعار بالدولار كما تظهر على المواقع الرسمية وقت التوثيق، وقد تتغير مع العروض والعملة المحلية. الموقع لا يبيع المنتجات ولا يتقاضى عمولة.</p>
     </div>
   </section>
 </main>
-<footer class="site-footer">
-  <div class="wrap">
-    <div class="footer-inner">
-      <div>
-        <h2>ترايثلون الصحراء</h2>
-        <p>مرجع مستقل في أبوظبي لمعدات السباحة والدراجة والجري. أسماء البراندات للتعريف فقط.</p>
-      </div>
-      <div>
-        <h2>الصفحات</h2>
-        <ul>
-          <li><a href="index.html">الرئيسية</a></li>
-          <li><a href="products.html">المنتجات</a></li>
-          <li><a href="contact.html">تواصل</a></li>
-        </ul>
-      </div>
-      <div>
-        <h2>تواصل</h2>
-        <ul>
-          <li><a href="mailto:hello@example.com">hello@example.com</a></li>
-          <li><a href="tel:+97120000000">٠٢ ٠٠٠ ٠٠٠٠</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">© ٢٠٢٦ ترايثلون الصحراء. المحتوى إرشادي ولا يغني عن مدرب مختص.</div>
-  </div>
-</footer>
-<script src="app.js"></script>
+<footer class="site-footer"><div class="wrap"><div class="footer-inner"><div><h2>ترايثلون الصحراء</h2><p>مرجع مستقل في أبوظبي.</p></div><div><h2>الصفحات</h2><ul><li><a href="index.html">الرئيسية</a></li><li><a href="products.html">المنتجات</a></li><li><a href="contact.html">تواصل</a></li></ul></div></div><div class="footer-bottom">© ٢٠٢٦</div></div></footer>
+<script src="app.js" defer></script>
 </body>
 </html>
