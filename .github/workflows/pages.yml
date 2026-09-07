@@ -28,7 +28,7 @@ jobs:
       - name: Prepare site files
         run: |
           mkdir -p _site
-          cp index.html services.html contact.html provider.html styles.css theme.css app.js README.md _site/
+          cp index.html services.html contact.html styles.css app.js README.md _site/
           touch _site/.nojekyll
       - uses: actions/upload-pages-artifact@v3
         with:

@@ -1,8 +1,5 @@
-# Day3 — دليل الخدمات
+# ثلاثي — معدات ونصائح الترايثلون
 
-موقع ثابت لدليل مزوّدي خدمات المنازل في أبوظبي.
+موقع ثابت عربي (RTL) لمراجعات المعدات ونصائح التدريب في السباحة والدراجة والجري.
 
-الموقع: https://rashedsg.github.io/Day3/
-
-إن ظهر 404: Settings → Pages → Source = GitHub Actions
-ثم Actions → Review deployments → Approve
+https://rashedsg.github.io/Day3/
