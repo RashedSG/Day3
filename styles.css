@@ -24,7 +24,7 @@ body {
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
 }
-h1, h2, h3 { margin: 0 0 0.4em; font-weight: 700; letter-spacing: -0.03em; line-height: 1.08; }
+h1, h2, h3 { margin: 0 0 0.4em; font-weight: 600; letter-spacing: -0.03em; line-height: 1.08; }
 h1 { font-size: clamp(2.35rem, 1.3rem + 4vw, 4.1rem); }
 h2 { font-size: clamp(1.7rem, 1.15rem + 2vw, 2.7rem); }
 h3 { font-size: 1.2rem; letter-spacing: -0.02em; }
@@ -32,6 +32,11 @@ p { margin: 0 0 1rem; }
 a { color: var(--link); text-decoration: none; }
 a:hover { text-decoration: underline; }
 img { max-width: 100%; display: block; }
+.hero-media img, .disc img, .product img { background: #ececef; }
+.hero-media img { aspect-ratio: 16 / 9; }
+.disc img { aspect-ratio: 16 / 10; }
+.product img { aspect-ratio: 3 / 2; }
+.section { content-visibility: auto; contain-intrinsic-size: 1px 720px; }
 .wrap { width: min(100% - 2.4rem, var(--wrap)); margin-inline: auto; }
 .center { text-align: center; }
 :focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; border-radius: 6px; }
