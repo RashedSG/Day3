@@ -2,6 +2,18 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="utf-8">
+<script>
+  (function () {
+    var t;
+    try { t = localStorage.getItem("theme"); } catch (e) {}
+    if (t !== "dark" && t !== "light")
+      t = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    var r = document.documentElement;
+    if (t === "dark") r.className += (r.className ? " " : "") + "theme-dark";
+    r.setAttribute("data-theme", t);
+    r.style.colorScheme = t;
+  })();
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>دليل الخدمات — خدمات المنازل في أبوظبي</title>
 <meta name="description" content="دليل مرتّب لمزوّدي خدمات المنازل والصيانة في أبوظبي، مقسّم حسب نوع الخدمة.">
@@ -11,18 +23,25 @@
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
 <a class="skip-link" href="#main">تخطَّ إلى المحتوى</a>
-
 <header class="site-header">
   <div class="wrap-wide header-inner">
     <a class="brand" href="index.html">دليل الخدمات</a>
-
-    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mainNav">
-      <span class="nav-toggle-bars" aria-hidden="true"></span>
-      القائمة
-    </button>
-
+    <div class="header-tools">
+      <button class="theme-toggle" id="themeToggle" type="button" aria-pressed="false" aria-label="تبديل المظهر">
+        <svg class="theme-icon theme-icon--sun" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 3v2M12 19v2M5.2 5.2l1.4 1.4M17.4 17.4l1.4 1.4M3 12h2M19 12h2M5.2 18.8l1.4-1.4M17.4 6.6l1.4-1.4"></path>
+        </svg>
+        <svg class="theme-icon theme-icon--moon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M16.5 13.5A7 7 0 0 1 10 4a7.5 7.5 0 1 0 9.2 10.3 6.2 6.2 0 0 1-2.7-.8z"></path>
+        </svg>
+      </button>
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mainNav">
+        <span class="nav-toggle-bars" aria-hidden="true"></span>
+        القائمة
+      </button>
+    </div>
     <nav class="main-nav" id="mainNav" aria-label="التنقل الرئيسي">
       <ul>
         <li><a href="index.html" aria-current="page">الرئيسية</a></li>
@@ -32,9 +51,7 @@
     </nav>
   </div>
 </header>
-
 <main id="main">
-
   <section class="wrap hero">
     <h1>كل من يُصلح ويُنظّف وينقل، في مكان واحد</h1>
     <p class="lead">مزوّدو خدمات المنازل في أبوظبي، مرتّبون حسب نوع الخدمة، ببيانات تواصل تُراجع شهريًا.</p>
@@ -43,81 +60,13 @@
       <a class="link-more" href="contact.html">أضف نشاطك إلى الدليل</a>
     </div>
   </section>
-
-  <section class="section--tight">
-    <div class="wrap-wide tiles">
-
-      <article class="tile tile--wide tile--dark">
-        <h2>ثماني فئات تغطي الصيانة اليومية</h2>
-        <p>تكييف، سباكة، كهرباء، نظافة، نقل أثاث، مكافحة حشرات، دهان، وأجهزة منزلية.</p>
-        <div class="actions">
-          <a class="link-more" href="services.html">اعرض الفئات</a>
-        </div>
-        <div class="tile-figure">
-          <div><strong>٦٦</strong><span class="tile-note">مزوّدًا مسجّلًا</span></div>
-          <div><strong>٨</strong><span class="tile-note">فئات خدمات</span></div>
-          <div><strong>شهريًا</strong><span class="tile-note">تحديث البيانات</span></div>
-        </div>
-      </article>
-
-      <article class="tile">
-        <h3>الأكثر طلبًا هذا الشهر</h3>
-        <p>صيانة التكييف بـ ١٤ مزوّدًا، تليها السباكة بـ ١١، ثم النظافة العامة بـ ٩.</p>
-        <div class="actions">
-          <a class="link-more" href="services.html">اعرض المزوّدين</a>
-        </div>
-      </article>
-
-      <article class="tile">
-        <h3>الإدراج مجاني</h3>
-        <p>أرسل اسم النشاط ونوع الخدمة ونطاق التغطية، ونراجع الطلب خلال أيام.</p>
-        <div class="actions">
-          <a class="link-more" href="contact.html">أرسل طلب الإدراج</a>
-        </div>
-      </article>
-
-    </div>
-  </section>
-
-  <section class="section section--alt">
-    <div class="wrap center">
-      <h2>كيف تستخدم الدليل</h2>
-      <p class="section-intro">ثلاث خطوات، بلا وسيط وبلا عمولة على أي اتفاق.</p>
-      <ol class="steps">
-        <li>
-          <h3>اختر نوع الخدمة</h3>
-          <p>كل فئة تجمع المزوّدين الذين يعملون داخل المدينة فعليًا.</p>
-        </li>
-        <li>
-          <h3>راجع بيانات المزوّد</h3>
-          <p>رقم التواصل، نطاق العمل، وساعات الاستجابة المعتادة.</p>
-        </li>
-        <li>
-          <h3>تواصل مباشرة</h3>
-          <p>تتصل بالمزوّد وتتفق معه على السعر والموعد بنفسك.</p>
-        </li>
-      </ol>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="wrap center">
-      <h2>تعمل في مجال الخدمات؟</h2>
-      <p class="section-intro">أضف نشاطك إلى الدليل ليظهر أمام من يبحث عن خدمتك في مدينتك.</p>
-      <div class="actions">
-        <a class="btn" href="contact.html">أضف نشاطك</a>
-      </div>
-    </div>
-  </section>
-
 </main>
-
 <footer class="site-footer">
   <div class="wrap-wide">
     <div class="footer-inner">
       <div>
         <h2>دليل الخدمات</h2>
-        <p>دليل مستقل لمزوّدي خدمات المنازل والصيانة في أبوظبي. البيانات تُراجع شهريًا، والإدراج لا يعني توصية بالمزوّد.</p>
+        <p>دليل مستقل لمزوّدي خدمات المنازل والصيانة في أبوظبي.</p>
       </div>
       <div>
         <h2>الصفحات</h2>
@@ -127,20 +76,10 @@
           <li><a href="contact.html">تواصل</a></li>
         </ul>
       </div>
-      <div>
-        <h2>التواصل</h2>
-        <ul>
-          <li><a href="mailto:hello@example.com">hello@example.com</a></li>
-          <li><a href="tel:+97120000000">٠٢ ٠٠٠ ٠٠٠٠</a></li>
-        </ul>
-      </div>
     </div>
-    <div class="footer-bottom">
-      <span>© ٢٠٢٦ دليل الخدمات. جميع الحقوق محفوظة.</span>
-    </div>
+    <div class="footer-bottom"><span>© ٢٠٢٦ دليل الخدمات.</span></div>
   </div>
 </footer>
-
 <script src="app.js"></script>
 </body>
 </html>
