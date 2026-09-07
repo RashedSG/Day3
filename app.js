@@ -1,39 +1,28 @@
-/* ثلاثي — سكربت مشترك: قائمة التنقّل على الجوال */
-
-(function () {
-  "use strict";
-
-  var toggle = document.getElementById("navToggle");
-  var nav = document.getElementById("mainNav");
-  if (!toggle || !nav) return;
-
-  function closeNav(returnFocus) {
-    nav.classList.remove("is-open");
-    toggle.setAttribute("aria-expanded", "false");
-    if (returnFocus) toggle.focus();
-  }
-
-  toggle.addEventListener("click", function () {
-    var isOpen = nav.classList.toggle("is-open");
-    toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
-    if (isOpen) {
-      var first = nav.querySelector("a");
-      if (first) first.focus();
-    }
-  });
-
-  document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape" && nav.classList.contains("is-open")) closeNav(true);
-  });
-
-  nav.addEventListener("click", function (e) {
-    if (e.target.tagName === "A") closeNav(false);
-  });
-
-  if (window.matchMedia) {
-    var mq = window.matchMedia("(min-width: 760px)");
-    var onChange = function (e) { if (e.matches) closeNav(false); };
-    if (mq.addEventListener) mq.addEventListener("change", onChange);
-    else if (mq.addListener) mq.addListener(onChange);
-  }
+(function(){"use strict";
+var root=document.documentElement,toggle=document.getElementById("navToggle"),nav=document.getElementById("mainNav"),themeBtn=document.getElementById("themeToggle"),header=document.querySelector(".site-header");
+function closeNav(f){if(!nav||!toggle)return;nav.classList.remove("is-open");toggle.setAttribute("aria-expanded","false");if(f)toggle.focus();}
+if(toggle&&nav){toggle.addEventListener("click",function(){var o=nav.classList.toggle("is-open");toggle.setAttribute("aria-expanded",o?"true":"false");});document.addEventListener("keydown",function(e){if(e.key==="Escape")closeNav(true);});nav.addEventListener("click",function(e){if(e.target.closest("a"))closeNav(false);});}
+if(themeBtn){themeBtn.addEventListener("click",function(){var d=root.dataset.theme==="dark";if(d)delete root.dataset.theme;else root.dataset.theme="dark";try{localStorage.setItem("theme",d?"light":"dark");}catch(e){}});}
+if(header){window.addEventListener("scroll",function(){header.classList.toggle("is-scrolled",scrollY>8);},{passive:true});}
+var toTop=document.getElementById("toTop");
+if(toTop){window.addEventListener("scroll",function(){toTop.classList.toggle("is-visible",scrollY>480);},{passive:true});toTop.onclick=function(){scrollTo({top:0,behavior:"smooth"});};}
+function exp(cat,brands,models,n){var out=[],i=0;while(out.length<n){var b=brands[i%brands.length],m=models[i%models.length],c=Math.floor(i/models.length);out.push({id:cat+"-"+out.length,cat:cat,brand:b[0],name:m[0]+(c?" "+String.fromCharCode(65+c%8):""),type:m[1],price:Math.round(m[2]*(1+(c%5)*0.03)),desc:m[3],url:b[1],img:b[2],specs:m[4]});i++;}return out;}
+var swimB=[["Orca","https://www.orca.com/","img/orca-apex-flex.jpg"],["Zone3","https://www.zone3.com/","img/zone3-aspire.jpg"],["Speedo","https://www.speedo.com/","img/speedo-goggles.jpg"],["Roka","https://www.roka.com/","img/orca-apex-flex.jpg"]];
+var swimM=[["Apex Flex","بدلة",719,"أكتاف مرنة",{"النوع":"بدلة","المرونة":"عالية"}],["Aspire","بدلة",599,"متوازنة",{"النوع":"بدلة"}],["Fastskin","نظارات",45,"مرآة",{"النوع":"نظارات"}],["Trisuit","بدلة ثلاثي",189,"سباق",{"النوع":"ثلاثي"}]];
+var bikeB=[["Canyon","https://www.canyon.com/","img/canyon-speedmax.jpg"],["Wahoo","https://www.wahoofitness.com/","img/wahoo-kickr.jpg"],["Favero","https://www.favero.com/","img/favero-assioma.jpg"]];
+var bikeM=[["Speedmax CF","دراجة",4500,"هوائي",{"النوع":"TT"}],["KICKR CORE","مدرّب",499,"منزلي",{"النوع":"مدرّب"}],["Assioma Duo","قدرة",695,"جانبان",{"النوع":"قدرة"}]];
+var runB=[["Garmin","https://www.garmin.com/","img/garmin-965.jpg"],["HOKA","https://www.hoka.com/","img/hoka-cielo.jpg"],["Maurten","https://www.maurten.com/","img/maurten-gel100.jpg"],["COROS","https://www.coros.com/","img/garmin-965.jpg"]];
+var runM=[["Forerunner 965","ساعة",500,"ترايثلون",{"النوع":"ساعة"}],["Cielo X1 2.0","حذاء",275,"كربون",{"النوع":"سباق"}],["Gel 100","تغذية",4,"كربوهيدرات",{"النوع":"جل"}],["PACE 3","ساعة",229,"خفيفة",{"النوع":"ساعة"}]];
+var catalog=exp("swim",swimB,swimM,108).concat(exp("bike",bikeB,bikeM,108),exp("run",runB,runM,108));
+var PAGE=24,shown={swim:PAGE,bike:PAGE,run:PAGE},active="all",q="";
+function ar(n){return String(n).replace(/\d/g,function(d){return "٠١٢٣٤٥٦٧٨٩"[d];})+" دولار";}
+function ok(p){if(active!=="all"&&p.cat!==active)return false;if(!q)return true;return (p.name+" "+p.brand).toLowerCase().indexOf(q)>=0;}
+function card(p){return '<li class="product"><a class="product-hit" href="'+p.url+'" rel="noopener noreferrer"><img loading="lazy" src="'+p.img+'" alt=""><div class="product-body"><span class="tag">'+p.brand+"</span><h3>"+p.name+"</h3><p>"+p.desc+'</p><p class="price">'+ar(p.price)+"<small>"+p.type+"</small></p></div></a></li>";}
+function render(){["swim","bike","run"].forEach(function(cat){var list=catalog.filter(function(p){return p.cat===cat&&ok(p);});var g=document.getElementById("grid-"+cat);if(!g)return;g.innerHTML=list.slice(0,shown[cat]).map(card).join("");var sec=document.querySelector('.product-section[data-cat="'+cat+'"]');if(sec)sec.hidden=list.length===0||(active!=="all"&&active!==cat);var more=document.querySelector('[data-more="'+cat+'"]');if(more){more.hidden=list.length<=shown[cat];more.textContent="عرض المزيد ("+Math.max(list.length-shown[cat],0)+")";}var b=document.querySelector('[data-count="'+cat+'"]');if(b)b.textContent=String(catalog.filter(function(p){return p.cat===cat;}).length);});}
+function byId(id){for(var i=0;i<catalog.length;i++)if(catalog[i].id===id)return catalog[i];}
+function fill(){var cat=(document.getElementById("compareCat")||{}).value||"swim";var list=catalog.filter(function(p){return p.cat===cat;});function opts(sel,i){if(!sel)return;sel.innerHTML=list.map(function(p,x){return '<option value="'+p.id+'"'+(x===i?" selected":"")+">"+p.brand+" — "+p.name+"</option>";}).join("");}opts(document.getElementById("compareA"),0);opts(document.getElementById("compareB"),1);cmp();}
+function cmp(){var a=byId((document.getElementById("compareA")||{}).value),b=byId((document.getElementById("compareB")||{}).value),body=document.getElementById("compareBody");if(!a||!b||!body)return;var ha=document.getElementById("compareHeadA"),hb=document.getElementById("compareHeadB");if(ha)ha.textContent=a.brand+" "+a.name;if(hb)hb.textContent=b.brand+" "+b.name;var rows=[["البراند",a.brand,b.brand],["النوع",a.type,b.type],["السعر",ar(a.price),ar(b.price)]];Object.keys(a.specs||{}).forEach(function(k){rows.push([k,a.specs[k],(b.specs&&b.specs[k])||"—"]);});body.innerHTML=rows.map(function(r){return "<tr><th>"+r[0]+"</th><td>"+r[1]+"</td><td>"+r[2]+"</td></tr>";}).join("");}
+if(document.getElementById("grid-swim")){render();fill();document.querySelectorAll("[data-filter]").forEach(function(ch){ch.addEventListener("click",function(){active=ch.getAttribute("data-filter");document.querySelectorAll("[data-filter]").forEach(function(c){c.setAttribute("aria-pressed",c===ch?"true":"false");});shown={swim:PAGE,bike:PAGE,run:PAGE};render();});});var s=document.getElementById("catalogSearch");if(s)s.addEventListener("input",function(){q=s.value.trim().toLowerCase();shown={swim:PAGE,bike:PAGE,run:PAGE};render();});document.querySelectorAll("[data-more]").forEach(function(btn){btn.addEventListener("click",function(){shown[btn.getAttribute("data-more")]+=PAGE;render();});});["compareCat","compareA","compareB"].forEach(function(id){var el=document.getElementById(id);if(el)el.addEventListener("change",id==="compareCat"?fill:cmp);});}
+var form=document.getElementById("contactForm");
+if(form)form.addEventListener("submit",function(e){e.preventDefault();var st=document.getElementById("formStatus");if(st){st.textContent="وصلت محليًا.";st.className="form-status is-ok";}});
 })();
