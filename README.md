@@ -1,9 +1,7 @@
 # ترايثلون الصحراء
 
-مرجع عربي RTL لمعدات الترايثلون بأسلوب قريب من صفحات Apple.
+مرجع عربي RTL لمعدات الترايثلون في أبوظبي.
 
-- الرئيسية: `index.html`
-- المنتجات: `products.html` (مع جدول مقارنة الساعات)
-- تواصل: `contact.html`
+الموقع: https://rashedsg.github.io/Day3/
 
-النشر: [GitHub Pages](https://rashedsg.github.io/Day3/)
+الصفحات: الرئيسية، المنتجات، تواصل.
