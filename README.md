@@ -2,8 +2,7 @@
 
 موقع ثابت لدليل مزوّدي خدمات المنازل في أبوظبي.
 
-الموقع: [https://rashedsg.github.io/Day3/](https://rashedsg.github.io/Day3/)
+الموقع: https://rashedsg.github.io/Day3/
 
-```bash
-python3 -m http.server 8080
-```
+إن ظهر 404: Settings → Pages → Source = GitHub Actions
+ثم Actions → Review deployments → Approve
